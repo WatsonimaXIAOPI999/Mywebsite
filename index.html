@@ -3,167 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXCITING</title>
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            background: #0e0b16;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
+    <title>Poparcie Kandydatów</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        window.onload = function() {
+            const ctx = document.getElementById('pollChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Rafał Trzaskowski", "Karol Nawrocki", "Sławomir Mentzen", "Szymon Hołownia", "Krzysztof Stanowski", "Magdalena Biejat", "Grzegorz Braun", "Adrian Zandberg", "Marek Jakubiak"],
+                    datasets: [{
+                        label: 'Poparcie (%)',
+                        data: [32, 24, 15, 7, 4, 3, 3, 2, 1],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
         }
-
-        header {
-            background-color: #1f1147;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid #ff00ff;
-        }
-
-        header h1 {
-            color: #ff00ff;
-            margin: 0;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: url('https://cdn.pixabay.com/photo/2017/01/06/15/02/futuristic-1955105_1280.jpg') no-repeat center center/cover;
-            border-bottom: 2px solid #ff00ff;
-        }
-
-        .hero h2 {
-            font-size: 3em;
-            color: #00ffff;
-        }
-
-        .hero p {
-            font-size: 1.5em;
-            color: #ff00ff;
-        }
-
-        .hero a {
-            display: inline-block;
-            margin: 20px 10px;
-            padding: 15px 30px;
-            background-color: #ff00ff;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            border: 2px solid #00ffff;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .hero a:hover {
-            background-color: #00ffff;
-            color: #0e0b16;
-        }
-
-        .content {
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        .content h2 {
-            color: #00ffff;
-            font-size: 2.5em;
-        }
-
-        .social-icons {
-            margin: 20px 0;
-        }
-
-        .social-icons a {
-            margin: 0 15px;
-            font-size: 2em;
-            color: #ffffff;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #ff00ff;
-        }
-
-        .contact-form {
-            background-color: #1f1147;
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 500px;
-            margin: 0 auto;
-            border: 2px solid #ff00ff;
-        }
-
-        .contact-form h3 {
-            color: #00ffff;
-            margin-bottom: 20px;
-        }
-
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            background-color: #0e0b16;
-            border: 2px solid #00ffff;
-            color: #ffffff;
-        }
-
-        .contact-form button {
-            width: 100%;
-            padding: 15px;
-            background-color: #ff00ff;
-            border: 2px solid #00ffff;
-            color: #ffffff;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .contact-form button:hover {
-            background-color: #00ffff;
-            color: #0e0b16;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #1f1147;
-            border-top: 2px solid #ff00ff;
-        }
-
-        footer p {
-            margin: 0;
-            color: #ffffff;
-        }
-
-        footer a {
-            color: #ff00ff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    </script>
 </head>
 <body>
-
-   
-
-    <div class="hero">
-        
-        <p>Follow mm on my socials</p>
-       
-        <a href="https://www.youtube.com/@Prod.Exciting">Check out my YouTube</a>
-        <a href="">Check out my Projects</a>
-    </div>
-
-   
-
-
-    <footer>
-        <p>© 2024 Exciting site.All rights reserved.</p>
-    </footer>
-
+    <h1>Aktualne Poparcie dla Kandydatów</h1>
+    <canvas id="pollChart"></canvas>
 </body>
 </html>
-
