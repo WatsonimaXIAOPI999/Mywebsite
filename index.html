@@ -5,6 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poparcie Kandydatów</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        canvas {
+            margin-top: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
     <script>
         window.onload = function() {
             const ctx = document.getElementById('pollChart').getContext('2d');
@@ -14,7 +59,7 @@
                     labels: ["Rafał Trzaskowski", "Karol Nawrocki", "Sławomir Mentzen", "Szymon Hołownia", "Krzysztof Stanowski", "Magdalena Biejat", "Grzegorz Braun", "Adrian Zandberg", "Marek Jakubiak"],
                     datasets: [{
                         label: 'Poparcie (%)',
-                        data: [32, 24, 15, -7, 5, 3, 3, 2, 1],
+                        data: [32, 24, 15, 7, 4, 3, 3, 2, 1],
                         backgroundColor: 'rgba(54, 162, 235, 0.6)',
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 1
@@ -32,7 +77,12 @@
     </script>
 </head>
 <body>
-    <h1>Prawdziwe poparcie dla kandydatów, a nie jakieś lewackie. </h1>
-    <canvas id="pollChart"></canvas>
+    <div class="navbar">
+        <a href="#">Strona Główna</a>
+        <a href="#">Sondaże</a>
+        <a href="#">Kontakt</a>
+    </div>
+    <h1 class="fade-in">Aktualne Poparcie dla Kandydatów</h1>
+    <canvas id="pollChart" class="fade-in"></canvas>
 </body>
 </html>
